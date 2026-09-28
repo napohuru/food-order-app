@@ -39,82 +39,37 @@
       overscroll-behavior: none;
     }
 
-    /* ===== 顶部 header：品牌 + 夜宵摊动画 ===== */
+    /* ===== 顶部 header ===== */
     .header {
-      position: sticky;
-      top: 0;
-      z-index: 100;
+      position: sticky; top: 0; z-index: 100;
       background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-      color: white;
-      padding: 10px 20px;
-      min-height: 64px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
+      color: white; padding: 10px 20px; min-height: 64px;
+      display: flex; align-items: center; justify-content: space-between;
       box-shadow: 0 4px 20px rgba(231, 76, 60, 0.3);
     }
+    .header h1 { font-size: 20px; font-weight: 700; letter-spacing: 1px; }
 
-    .header h1 {
-      font-size: 20px;
-      font-weight: 700;
-      letter-spacing: 1px;
-    }
-
-    /* ===== 夜宵摊小动画 ===== */
-    .night-stall {
-      position: relative;
-      width: 80px;
-      height: 52px;
-      flex-shrink: 0;
-    }
-
+    /* ===== 夜宵摊动画 ===== */
+    .night-stall { position: relative; width: 80px; height: 52px; flex-shrink: 0; }
     .stall-roof {
-      position: absolute;
-      top: 12px;
-      left: 6px;
-      width: 68px;
-      height: 12px;
-      background: #ffffff;
-      border-radius: 4px 4px 2px 2px;
+      position: absolute; top: 12px; left: 6px; width: 68px; height: 12px;
+      background: #fff; border-radius: 4px 4px 2px 2px;
       box-shadow: 0 2px 0 rgba(0,0,0,0.08);
     }
-    .stall-roof::before,
-    .stall-roof::after {
-      content: '';
-      position: absolute;
-      top: -4px;
-      width: 10px;
-      height: 10px;
-      background: #ffffff;
-      border-radius: 4px;
-      transform: rotate(45deg);
+    .stall-roof::before, .stall-roof::after {
+      content: ''; position: absolute; top: -4px; width: 10px; height: 10px;
+      background: #fff; border-radius: 4px; transform: rotate(45deg);
     }
     .stall-roof::before { left: -2px; }
     .stall-roof::after { right: -2px; }
-
     .stall-body {
-      position: absolute;
-      top: 22px;
-      left: 12px;
-      width: 56px;
-      height: 26px;
-      background: #fff5eb;
-      border-radius: 2px;
-      border: 2px solid #ffffff;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
+      position: absolute; top: 22px; left: 12px; width: 56px; height: 26px;
+      background: #fff5eb; border-radius: 2px; border: 2px solid #fff;
+      display: flex; align-items: center; justify-content: center; overflow: hidden;
     }
-
     .stall-window {
-      position: absolute;
-      left: 6px;
-      top: 6px;
-      width: 14px;
-      height: 14px;
-      background: #ffd77a;
-      border-radius: 2px;
+      position: absolute; left: 6px; top: 6px; width: 14px; height: 14px;
+      background: #ffd77a; border-radius: 2px;
       box-shadow: 0 0 8px 2px rgba(255, 215, 122, 0.9);
       animation: windowGlow 2.4s ease-in-out infinite;
     }
@@ -122,32 +77,21 @@
       0%, 100% { box-shadow: 0 0 6px 1px rgba(255, 215, 122, 0.8); }
       50% { box-shadow: 0 0 12px 3px rgba(255, 215, 122, 1); }
     }
-
     .stall-sign {
-      font-size: 14px;
-      font-weight: 900;
-      color: var(--primary);
-      margin-left: 18px;
-      font-family: 'SimSun', 'PingFang SC', sans-serif;
+      font-size: 14px; font-weight: 900; color: var(--primary);
+      margin-left: 18px; font-family: 'SimSun', 'PingFang SC', sans-serif;
+      animation: ledSign 1.6s ease-in-out infinite;
     }
-
+    @keyframes ledSign {
+      0%, 100% { color: #ff5a3c; text-shadow: 0 0 4px #ffb3a1, 0 0 8px #ff8c73, 0 0 14px #ff5a3c; }
+      50% { color: #ffd0c4; text-shadow: 0 0 2px #fff, 0 0 4px #ffd0c4, 0 0 8px #ff5a3c; }
+    }
     .stall-base {
-      position: absolute;
-      bottom: 0;
-      left: 8px;
-      width: 64px;
-      height: 6px;
-      background: #ffffff;
-      border-radius: 2px;
-      opacity: 0.9;
+      position: absolute; bottom: 0; left: 8px; width: 64px; height: 6px;
+      background: #fff; border-radius: 2px; opacity: 0.9;
     }
-
     .lantern {
-      position: absolute;
-      top: 2px;
-      right: 6px;
-      width: 12px;
-      height: 16px;
+      position: absolute; top: 2px; right: 6px; width: 12px; height: 16px;
       background: radial-gradient(circle at 50% 40%, #ffe8a3, #e74c3c 70%);
       border-radius: 50% / 40%;
       box-shadow: 0 0 8px 2px rgba(255, 210, 100, 0.7);
@@ -155,111 +99,62 @@
       transform-origin: top center;
     }
     .lantern::after {
-      content: '';
-      position: absolute;
-      bottom: -3px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 2px;
-      height: 4px;
-      background: #ffd77a;
+      content: ''; position: absolute; bottom: -3px; left: 50%; transform: translateX(-50%);
+      width: 2px; height: 4px; background: #ffd77a;
     }
-    @keyframes lanternSwing {
-      0%, 100% { transform: rotate(-6deg); }
-      50% { transform: rotate(6deg); }
-    }
+    @keyframes lanternSwing { 0%, 100% { transform: rotate(-6deg); } 50% { transform: rotate(6deg); } }
     .lantern-string {
-      position: absolute;
-      top: 0;
-      right: 11px;
-      width: 2px;
-      height: 4px;
+      position: absolute; top: 0; right: 11px; width: 2px; height: 4px;
       background: rgba(255,255,255,0.9);
     }
-
     .steam {
-      position: absolute;
-      bottom: 28px;
-      width: 6px;
-      height: 14px;
-      background: rgba(255,255,255,0.55);
-      border-radius: 50%;
-      filter: blur(1px);
-      opacity: 0;
+      position: absolute; bottom: 28px; width: 6px; height: 14px;
+      background: rgba(255,255,255,0.55); border-radius: 50%;
+      filter: blur(1px); opacity: 0;
     }
     .steam1 { left: 32px; animation: steamRise 2.6s ease-in infinite; }
     .steam2 { left: 40px; animation: steamRise 2.6s ease-in infinite 0.6s; }
     .steam3 { left: 48px; animation: steamRise 2.6s ease-in infinite 1.2s; }
-
     @keyframes steamRise {
       0% { opacity: 0; transform: translateY(0) scale(0.6); }
       25% { opacity: 0.75; }
       100% { opacity: 0; transform: translateY(-26px) scale(1.4); }
     }
 
-    /* ===== 桌台状态栏：圆形紧凑布局 ===== */
+    /* ===== 桌台状态栏 ===== */
     .table-status-bar {
-      display: flex;
-      gap: 8px;
-      padding: 8px 12px;
-      overflow-x: auto;
-      background: var(--card);
+      display: flex; gap: 8px; padding: 8px 12px;
+      overflow-x: auto; background: var(--card);
       border-bottom: 1px solid var(--border);
-      position: sticky;
-      top: 64px;
-      z-index: 95;
-      -webkit-overflow-scrolling: touch;
-      scrollbar-width: none;
+      position: sticky; top: 64px; z-index: 95;
+      -webkit-overflow-scrolling: touch; scrollbar-width: none;
     }
     .table-status-bar::-webkit-scrollbar { display: none; }
-
     .table-chip {
-      flex-shrink: 0;
-      width: 52px;
-      height: 52px;
+      flex-shrink: 0; width: 52px; height: 52px;
       border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 12px;
-      font-weight: 700;
-      cursor: pointer;
-      transition: all 0.2s;
-      border: 2.5px solid transparent;
-      background: #f5f5f5;
-      color: var(--text-light);
-      user-select: none;
-      -webkit-user-select: none;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 12px; font-weight: 700; cursor: pointer;
+      transition: all 0.2s; border: 2.5px solid transparent;
+      background: #f5f5f5; color: var(--text-light);
+      user-select: none; -webkit-user-select: none;
+      -webkit-touch-callout: none;
     }
-
-    .table-chip.free {
-      background: #fff;
-      border-color: #d5d5d5;
-      color: #9aa0a6;
-    }
-
-    .table-chip.occupied {
-      background: #fff;
-      border-color: var(--warning);
-      color: var(--warning);
-    }
-
+    .table-chip.free { background: #fff; border-color: #d5d5d5; color: #9aa0a6; }
+    .table-chip.occupied { background: #fff; border-color: var(--warning); color: var(--warning); }
     .table-chip.active {
       background: var(--primary);
       border-color: var(--primary-dark);
       color: white;
       box-shadow: 0 0 0 3px rgba(231,76,60,0.18), 0 4px 10px rgba(231,76,60,0.35);
     }
-
     @keyframes tablePop {
       0% { transform: scale(1); }
       40% { transform: scale(1.15); }
       70% { transform: scale(0.95); }
       100% { transform: scale(1); }
     }
-    .table-chip.pop {
-      animation: tablePop 0.4s ease;
-    }
+    .table-chip.pop { animation: tablePop 0.4s ease; }
 
     .categories {
       display: flex; gap: 10px; padding: 12px 16px;
@@ -269,7 +164,6 @@
       -webkit-overflow-scrolling: touch; scrollbar-width: none;
     }
     .categories::-webkit-scrollbar { display: none; }
-
     .cat-btn {
       flex-shrink: 0; padding: 8px 18px; border-radius: 50px;
       border: none; background: var(--bg); color: var(--text);
@@ -280,12 +174,11 @@
       box-shadow: 0 4px 12px rgba(231, 76, 60, 0.35);
     }
 
-    /* ===== 菜品卡片放大 ===== */
+    /* ===== 菜品卡片 ===== */
     .menu-grid {
       display: grid; grid-template-columns: repeat(3, 1fr);
       gap: 12px; padding: 14px;
     }
-
     .grid-item {
       background: var(--card); border-radius: 16px;
       padding: 14px 8px 12px; box-shadow: var(--shadow);
@@ -294,32 +187,22 @@
       cursor: pointer; position: relative;
       -webkit-tap-highlight-color: transparent;
     }
-
-    .grid-item:active {
-      transform: scale(0.93);
-      box-shadow: 0 1px 4px rgba(0,0,0,0.12);
-    }
-
+    .grid-item:active { transform: scale(0.93); box-shadow: 0 1px 4px rgba(0,0,0,0.12); }
     @keyframes cardPop {
       0% { transform: scale(1); }
       30% { transform: scale(1.08); }
       60% { transform: scale(0.97); }
       100% { transform: scale(1); }
     }
-    .grid-item.pop {
-      animation: cardPop 0.3s ease;
-    }
-
+    .grid-item.pop { animation: cardPop 0.3s ease; }
     .grid-name {
       font-size: 15px; font-weight: 600; line-height: 1.3;
       min-height: 40px; overflow: hidden;
       display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;
-      color: var(--text);
-      margin-top: 4px;
+      color: var(--text); margin-top: 4px;
     }
     .grid-price { font-size: 18px; font-weight: 700; color: var(--primary); margin-top: 6px; }
     .grid-price::before { content: '¥'; font-size: 13px; }
-
     .grid-qty-badge {
       position: absolute; top: 6px; right: 6px;
       background: var(--primary); color: white;
@@ -328,17 +211,13 @@
       display: flex; align-items: center; justify-content: center;
       padding: 0 5px; box-shadow: 0 2px 6px rgba(231,76,60,0.4);
     }
-
     @keyframes badgeBounce {
       0% { transform: scale(1); }
       30% { transform: scale(1.5); }
       60% { transform: scale(0.85); }
       100% { transform: scale(1); }
     }
-    .grid-qty-badge.bounce {
-      animation: badgeBounce 0.35s ease;
-    }
-
+    .grid-qty-badge.bounce { animation: badgeBounce 0.35s ease; }
     .grid-add-btn {
       margin-top: 10px; width: 38px; height: 38px;
       border-radius: 50%; border: none;
@@ -348,10 +227,7 @@
       cursor: pointer; box-shadow: 0 3px 8px rgba(231,76,60,0.3);
       transition: transform 0.1s, background 0.15s;
     }
-    .grid-add-btn:active {
-      background: var(--primary-dark);
-      transform: scale(0.85);
-    }
+    .grid-add-btn:active { background: var(--primary-dark); transform: scale(0.85); }
 
     .table-action-bar {
       display: flex; gap: 10px; padding: 10px 16px;
@@ -375,12 +251,10 @@
     .btn-sm:disabled { opacity: 0.4; pointer-events: none; }
 
     .cart-list, .order-list { padding: 16px; }
-
     .cart-item, .order-card {
       background: var(--card); border-radius: var(--radius);
       padding: 14px; margin-bottom: 12px; box-shadow: var(--shadow);
     }
-
     .cart-item { display: flex; align-items: center; gap: 12px; }
     .cart-item .info { flex: 1; }
     .cart-item .name { font-weight: 600; font-size: 15px; }
@@ -460,20 +334,16 @@
       display: flex; align-items: center; justify-content: center;
       padding: 0 4px;
     }
-
     @keyframes navBadgeBounce {
       0% { transform: scale(1); }
       30% { transform: scale(1.6); }
       60% { transform: scale(0.8); }
       100% { transform: scale(1); }
     }
-    .badge.bounce {
-      animation: navBadgeBounce 0.4s ease;
-    }
+    .badge.bounce { animation: navBadgeBounce 0.4s ease; }
 
     .page { display: none; animation: fadeIn 0.25s ease; }
     .page.active { display: block; }
-
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(8px); }
       to { opacity: 1; transform: translateY(0); }
@@ -552,7 +422,7 @@
     }
     .btn-confirm:active { transform: scale(0.96); }
 
-    /* ===== 极简小票样式 ===== */
+    /* ===== 小票样式 ===== */
     .receipt-preview {
       background: #fff; border: 1px dashed #ccc;
       border-radius: 8px; padding: 10px 8px;
@@ -571,89 +441,39 @@
       display: flex; justify-content: space-between;
       font-size: 10px; color: #333;
     }
-    .receipt-preview .r-hr {
-      border-top: 1px dashed #000; margin: 4px 0;
-    }
-    .receipt-preview .r-item {
-      display: flex; justify-content: space-between;
-      font-size: 11px;
-    }
+    .receipt-preview .r-hr { border-top: 1px dashed #000; margin: 4px 0; }
+    .receipt-preview .r-item { display: flex; justify-content: space-between; font-size: 11px; }
     .receipt-preview .r-note {
       font-size: 10px; color: #e67e22;
       padding-left: 2px; margin-top: 1px;
     }
-    .receipt-preview .r-total {
-      font-weight: 700; font-size: 13px;
-    }
+    .receipt-preview .r-total { font-weight: 700; font-size: 13px; }
     .receipt-preview .r-add-dots {
-      display: inline-block;
-      color: #e67e22;
-      font-weight: 700;
-      margin-right: 4px;
-      letter-spacing: 1px;
+      display: inline-block; color: #e67e22;
+      font-weight: 700; margin-right: 4px; letter-spacing: 1px;
     }
-    .receipt-preview .r-foot {
-      text-align: center; font-size: 10px; color: #333;
-    }
-    .receipt-preview .r-void {
-      text-decoration: line-through;
-      color: #999;
-    }
-    .receipt-preview .r-void-tag {
-      color: #999;
-      font-size: 9px;
-      margin-left: 4px;
-    }
+    .receipt-preview .r-foot { text-align: center; font-size: 10px; color: #333; }
+    .receipt-preview .r-void { text-decoration: line-through; color: #999; }
+    .receipt-preview .r-void-tag { color: #999; font-size: 9px; margin-left: 4px; }
 
-    /* 订单里已划单的菜品 */
-    .order-items .void-item {
-      text-decoration: line-through;
-      color: #999;
-    }
-    .order-items .void-tag {
-      color: #999;
-      font-size: 10px;
-      margin-left: 4px;
-    }
-    /* 长按划单：菜品行可点击 */
+    .order-items .void-item { text-decoration: line-through; color: #999; }
+    .order-items .void-tag { color: #999; font-size: 10px; margin-left: 4px; }
     .order-items .item-row {
       display: flex; justify-content: space-between; align-items: center;
-      gap: 8px;
-      padding: 4px 6px;
-      margin: 2px -6px;
-      border-radius: 8px;
-      transition: background 0.15s;
-      cursor: pointer;
-      user-select: none;
-      -webkit-user-select: none;
-      -webkit-touch-callout: none;
-      position: relative;
-      overflow: hidden;
+      gap: 8px; padding: 4px 6px; margin: 2px -6px;
+      border-radius: 8px; transition: background 0.15s;
+      cursor: pointer; user-select: none; -webkit-user-select: none;
+      -webkit-touch-callout: none; position: relative; overflow: hidden;
     }
-    .order-items .item-row:active {
-      background: #f8f8f8;
-    }
-    /* 长按进度填充 */
+    .order-items .item-row:active { background: #f8f8f8; }
     .order-items .item-row .press-fill {
-      position: absolute;
-      left: 0; top: 0; bottom: 0;
-      width: 0%;
+      position: absolute; left: 0; top: 0; bottom: 0; width: 0%;
       background: rgba(231, 76, 60, 0.15);
-      pointer-events: none;
-      transition: width 0.1s linear;
+      pointer-events: none; transition: width 0.1s linear;
     }
-    .order-items .item-row.pressing .press-fill {
-      width: 100%;
-      transition: width 0.8s linear;
-    }
-    .order-items .item-row.voided {
-      cursor: default;
-    }
-    .order-items .item-row .void-hint {
-      color: #ccc;
-      font-size: 10px;
-      flex-shrink: 0;
-    }
+    .order-items .item-row.pressing .press-fill { width: 100%; transition: width 0.8s linear; }
+    .order-items .item-row.voided { cursor: default; }
+    .order-items .item-row .void-hint { color: #ccc; font-size: 10px; flex-shrink: 0; }
 
     .order-footer {
       display: flex; justify-content: space-between; align-items: center;
@@ -663,65 +483,48 @@
     }
     .order-total { font-size: 15px; font-weight: 700; color: var(--primary); }
 
-    /* ===== 订单按桌台分组 ===== */
+    /* ===== 订单分组 ===== */
     .order-group {
-      margin-bottom: 20px;
-      border-radius: 16px;
-      background: #fff;
-      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+      margin-bottom: 20px; border-radius: 16px;
+      background: #fff; box-shadow: 0 2px 12px rgba(0,0,0,0.06);
       overflow: hidden;
     }
     .order-group-header {
-      padding: 10px 14px;
-      background: #fafafa;
+      padding: 10px 14px; background: #fafafa;
       border-bottom: 1px solid var(--border);
     }
-    .order-group-title {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      flex-wrap: wrap;
-    }
-    .table-tag {
-      font-size: 16px;
-      font-weight: 700;
-      color: var(--text);
-    }
-    .table-meta {
-      font-size: 13px;
-      color: var(--text-light);
-    }
+    .order-group-title { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+    .table-tag { font-size: 16px; font-weight: 700; color: var(--text); }
+    .table-meta { font-size: 13px; color: var(--text-light); }
+
+    /* ===== 长按标签（开台中） ===== */
     .table-status-tag {
-      font-size: 11px;
-      font-weight: 600;
-      padding: 2px 10px;
-      border-radius: 50px;
-      margin-left: auto;
+      font-size: 11px; font-weight: 600; padding: 4px 12px;
+      border-radius: 50px; margin-left: auto;
+      position: relative; overflow: hidden;
+      user-select: none; -webkit-user-select: none;
+      -webkit-touch-callout: none;
+      cursor: pointer;
+      transition: transform 0.1s;
     }
-    .table-status-tag.occupied {
-      background: #fff5e6;
-      color: var(--warning);
+    .table-status-tag:active { transform: scale(0.94); }
+    .table-status-tag .tag-fill {
+      position: absolute; left: 0; top: 0; bottom: 0; width: 0%;
+      background: rgba(255,255,255,0.45);
+      pointer-events: none; transition: width 0.1s linear;
     }
-    .table-status-tag.free {
-      background: #eafaf1;
-      color: var(--success);
-    }
+    .table-status-tag.pressing .tag-fill { width: 100%; transition: width 0.8s linear; }
+    .table-status-tag > span { position: relative; z-index: 1; }
+
+    .table-status-tag.occupied { background: #fff5e6; color: var(--warning); }
+    .table-status-tag.free { background: #eafaf1; color: var(--success); }
     .order-group .order-card {
-      margin: 0;
-      border-radius: 0;
-      box-shadow: none;
+      margin: 0; border-radius: 0; box-shadow: none;
       border-bottom: 1px solid #f0f0f0;
     }
-    .order-group .order-card:last-child {
-      border-bottom: none;
-    }
-    .order-group .order-card .order-header {
-      padding-top: 4px;
-    }
-    .order-group .order-card .order-id {
-      color: var(--text-light);
-      font-size: 12px;
-    }
+    .order-group .order-card:last-child { border-bottom: none; }
+    .order-group .order-card .order-header { padding-top: 4px; }
+    .order-group .order-card .order-id { color: var(--text-light); font-size: 12px; }
 
     .settings { padding: 20px 16px; }
     .setting-card {
@@ -731,7 +534,6 @@
     .setting-card h4 { font-size: 15px; margin-bottom: 8px; }
     .setting-card p { font-size: 13px; color: var(--text-light); line-height: 1.5; margin-bottom: 12px; }
 
-    /* ===== 菜品管理 ===== */
     .manage-header {
       display: flex; justify-content: space-between; align-items: center;
       margin-bottom: 12px;
@@ -766,32 +568,22 @@
     .manage-item .mi-price { color: var(--primary); font-weight: 700; margin: 0 10px; }
     .manage-item .mi-actions { display: flex; gap: 6px; }
     .manage-empty {
-      text-align: center; padding: 30px 20px; color: var(--text-light); font-size: 13px;
+      text-align: center; padding: 30px 20px;
+      color: var(--text-light); font-size: 13px;
     }
 
     .toast {
-      position: fixed; top: 20%;
-      left: 50%;
+      position: fixed; top: 20%; left: 50%;
       transform: translateX(-50%) translateY(-10px);
-      background: rgba(0,0,0,0.78);
-      color: white;
-      padding: 10px 24px;
-      border-radius: 50px;
-      font-size: 14px;
-      z-index: 999;
-      opacity: 0;
-      transition: all 0.25s;
-      pointer-events: none;
-      white-space: nowrap;
-      max-width: 80vw;
-      text-align: center;
-      overflow: hidden;
-      text-overflow: ellipsis;
+      background: rgba(0,0,0,0.78); color: white;
+      padding: 10px 24px; border-radius: 50px;
+      font-size: 14px; z-index: 999;
+      opacity: 0; transition: all 0.25s;
+      pointer-events: none; white-space: nowrap;
+      max-width: 80vw; text-align: center;
+      overflow: hidden; text-overflow: ellipsis;
     }
-    .toast.show {
-      opacity: 1;
-      transform: translateX(-50%) translateY(0);
-    }
+    .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
 
     @media print {
       body * { visibility: hidden; }
@@ -806,11 +598,9 @@
 </head>
 <body>
 
-  <!-- ===== 顶部 header：品牌 + 夜宵摊动画 ===== -->
+  <!-- ===== 顶部 header ===== -->
   <div class="header" id="appHeader">
     <h1>宫头夜宵店</h1>
-
-    <!-- 夜宵摊小动画：小房子 + 灯笼 + 热气 -->
     <div class="night-stall">
       <div class="steam steam1"></div>
       <div class="steam steam2"></div>
@@ -820,7 +610,7 @@
       <div class="stall-roof"></div>
       <div class="stall-body">
         <div class="stall-window"></div>
-        <div class="stall-sign">宵</div>
+        <div class="stall-sign" id="ledSign">宵</div>
       </div>
       <div class="stall-base"></div>
     </div>
@@ -856,6 +646,10 @@
         <p>在订单页，长按某个菜品约 0.8 秒即可划掉该菜品。已划单菜品不计入金额，小票上显示删除线。</p>
       </div>
       <div class="setting-card">
+        <h4>撤回订单</h4>
+        <p>在订单页，长按某桌“开台中”标签约 0.8 秒，可撤回该桌所有未结账订单到购物车重新编辑。</p>
+      </div>
+      <div class="setting-card">
         <h4>数据说明</h4>
         <p>所有订单和菜单数据保存在本机浏览器本地存储中，不会上传到任何服务器。清除浏览器数据会导致订单丢失。</p>
       </div>
@@ -865,9 +659,13 @@
         <button class="btn-danger" onclick="clearAllData()">清空全部数据</button>
       </div>
       <div class="setting-card">
-        <h4>导出营业报表</h4>
-        <p>将今日订单导出为PDF格式的日营业报表，包含每笔订单明细、客流峰谷图和菜品峰谷图。</p>
-        <button class="btn-outline" onclick="exportDailyReport()">导出PDF日营业报表</button>
+        <h4>营业报表 PDF</h4>
+        <p>点击生成今日营业报表 PDF（浏览器新窗口打开，可另存为 PDF）。长按可选择前几天的报表。</p>
+        <button class="btn-outline" id="reportBtn"
+          onmousedown="startReportLongPress()" onmouseup="endReportLongPress()" onmouseleave="endReportLongPress()"
+          ontouchstart="startReportLongPress()" ontouchend="endReportLongPress()"
+          onclick="if(!reportLongPressed){exportReportPDF(new Date());}">导出营业报表 PDF</button>
+        <div style="font-size:11px;color:var(--text-light);text-align:center;margin-top:6px">长按可选前几天 · 点击导出今天</div>
       </div>
       <div class="setting-card">
         <h4>恢复默认菜单</h4>
@@ -883,7 +681,7 @@
       </div>
       <div class="setting-card">
         <h4>关于</h4>
-        <p>宫头夜宵店 · 开桌点餐 · 收台小票 · 58mm小票预览<br>版本 6.4 · 订单页只显示当前批次 / 圆形桌台 / 键鼠支持</p>
+        <p>宫头夜宵店 · 开桌点餐 · 收台小票 · 58mm小票预览<br>版本 7.7 · 报表按小时分组 / 一行多张</p>
       </div>
     </div>
   </div>
@@ -982,6 +780,21 @@
     </div>
   </div>
 
+  <!-- 日期选择弹窗 -->
+  <div class="modal-mask" id="datePickerModal">
+    <div class="modal">
+      <h3>选择报表日期</h3>
+      <div class="form-group">
+        <label>请选择要导出的日期（最近 7 天）</label>
+        <select id="reportDateSelect"></select>
+      </div>
+      <div class="modal-actions">
+        <button class="btn-cancel" onclick="closeModal('datePickerModal')">取消</button>
+        <button class="btn-confirm" onclick="exportSelectedDateReport()">导出</button>
+      </div>
+    </div>
+  </div>
+
   <div class="toast" id="toast"></div>
 
   <script src="https://cdn.jsdelivr.net/npm/solarlunar@2.0.7/lib/solarlunar.min.js"></script>
@@ -989,62 +802,47 @@
     // ========== 默认菜单数据 ==========
     const DEFAULT_MENU = [
       { category: "水饺", items: [
-        { id: 1, name: "猪肉水饺", price: 18, desc: "经典猪肉馅" },
-        { id: 2, name: "白菜猪肉水饺", price: 18, desc: "鲜嫩白菜" },
-        { id: 3, name: "韭菜鸡蛋水饺", price: 16, desc: "韭菜鲜香" },
-        { id: 4, name: "虾仁水饺", price: 22, desc: "鲜虾仁Q弹" },
-        { id: 5, name: "牛肉水饺", price: 20, desc: "牛肉鲜香" },
-        { id: 6, name: "三鲜水饺", price: 20, desc: "虾仁+猪肉+木耳" },
+        { id: 1, name: "葱肉水饺", price: 18, desc: "葱香肉馅" },
+        { id: 2, name: "韭菜猪肉水饺", price: 18, desc: "韭菜鲜香" },
+        { id: 3, name: "白菜猪肉水饺", price: 18, desc: "鲜嫩白菜" },
+        { id: 4, name: "煎饺10个", price: 10, desc: "外焦里嫩" },
       ]},
       { category: "面条", items: [
-        { id: 7, name: "阳春面", price: 12, desc: "清汤挂面" },
-        { id: 8, name: "炸酱面", price: 16, desc: "老北京风味" },
-        { id: 9, name: "牛肉面", price: 22, desc: "红烧牛肉" },
-        { id: 10, name: "葱油拌面", price: 14, desc: "葱香扑鼻" },
-        { id: 11, name: "刀削面", price: 18, desc: "手工刀削" },
-        { id: 12, name: "担担面", price: 16, desc: "麻辣鲜香" },
-      ]},
-      { category: "粉干", items: [
-        { id: 13, name: "炒粉干", price: 15, desc: "经典炒粉" },
-        { id: 14, name: "汤粉干", price: 14, desc: "清汤粉干" },
-        { id: 15, name: "牛肉粉", price: 20, desc: "鲜牛肉米粉" },
-        { id: 16, name: "酸辣粉", price: 16, desc: "酸辣开胃" },
-        { id: 17, name: "桂林米粉", price: 18, desc: "原汤原味" },
-        { id: 18, name: "炒河粉", price: 16, desc: "锅气十足" },
+        { id: 5, name: "炒粉干", price: 15, desc: "经典炒粉" },
+        { id: 6, name: "汤粉干", price: 14, desc: "清汤粉干" },
+        { id: 7, name: "炒河粉", price: 16, desc: "锅气十足" },
       ]},
       { category: "卤味", items: [
-        { id: 19, name: "卤鸡腿", price: 12, desc: "卤香入味" },
-        { id: 20, name: "卤鸭翅", price: 10, desc: "香辣入骨" },
-        { id: 21, name: "卤鸭脖", price: 15, desc: "麻辣鲜香" },
-        { id: 22, name: "卤蛋", price: 3, desc: "五香卤蛋" },
-        { id: 23, name: "卤豆腐干", price: 6, desc: "豆香浓郁" },
-        { id: 24, name: "猪耳朵", price: 18, desc: "脆爽有弹性" },
-        { id: 25, name: "鸡爪", price: 12, desc: "软糯入味" },
-        { id: 26, name: "鸭锁骨", price: 16, desc: "肉少骨香" },
-      ]},
-      { category: "小菜", items: [
-        { id: 27, name: "凉拌黄瓜", price: 8, desc: "清爽解腻" },
-        { id: 28, name: "花生米", price: 6, desc: "香脆可口" },
-        { id: 29, name: "泡菜", price: 5, desc: "酸辣开胃" },
-        { id: 30, name: "凉拌木耳", price: 10, desc: "爽脆清新" },
-        { id: 31, name: "酱牛肉", price: 28, desc: "酱香浓郁" },
+        { id: 8, name: "卤鸡腿", price: 12, desc: "卤香入味" },
+        { id: 9, name: "卤鸭翅", price: 10, desc: "香辣入骨" },
+        { id: 10, name: "卤鸭脖", price: 15, desc: "麻辣鲜香" },
+        { id: 11, name: "猪耳朵", price: 18, desc: "脆爽有弹性" },
+        { id: 12, name: "鸡爪", price: 12, desc: "软糯入味" },
+        { id: 13, name: "鸭锁骨", price: 16, desc: "肉少骨香" },
+        { id: 14, name: "猪脚", price: 28, desc: "软糯弹牙" },
+        { id: 15, name: "炸猪排", price: 18, desc: "外酥里嫩" },
       ]},
       { category: "饮品", items: [
-        { id: 32, name: "冰镇啤酒", price: 8, desc: "冰镇畅快" },
-        { id: 33, name: "可乐", price: 5, desc: "冰镇可口" },
-        { id: 34, name: "雪碧", price: 5, desc: "冰镇雪碧" },
-        { id: 35, name: "酸梅汤", price: 8, desc: "自制解腻" },
-        { id: 36, name: "豆浆", price: 4, desc: "热/冰均可" },
-        { id: 37, name: "绿茶", price: 4, desc: "冰镇绿茶" },
+        { id: 16, name: "冰镇啤酒", price: 8, desc: "冰镇畅快" },
+        { id: 17, name: "可乐", price: 5, desc: "冰镇可口" },
+        { id: 18, name: "雪碧", price: 5, desc: "冰镇雪碧" },
+        { id: 19, name: "酸梅汤", price: 8, desc: "自制解腻" },
+        { id: 20, name: "豆浆", price: 4, desc: "热/冰均可" },
+        { id: 21, name: "绿茶", price: 4, desc: "冰镇绿茶" },
       ]},
     ];
 
     // ========== 菜单 ==========
-    let MENU = JSON.parse(localStorage.getItem('em_menu') || 'null') || JSON.parse(JSON.stringify(DEFAULT_MENU));
-
-    function saveMenu() {
+    let MENU = JSON.parse(localStorage.getItem('em_menu') || 'null');
+    const needReset = !MENU ||
+      MENU.some(c => c.category === '粉干' || c.category === '小菜') ||
+      MENU.some(c => c.items && c.items.some(i => i.name === '卤蛋' || i.name === '卤豆腐干'));
+    if (needReset) {
+      MENU = JSON.parse(JSON.stringify(DEFAULT_MENU));
       localStorage.setItem('em_menu', JSON.stringify(MENU));
     }
+
+    function saveMenu() { localStorage.setItem('em_menu', JSON.stringify(MENU)); }
 
     function getNextItemId() {
       let maxId = 0;
@@ -1065,12 +863,14 @@
 
     let editingItem = null;
 
+    // 报表长按控制
+    let reportLongPressed = false;
+    let reportLongPressTimer = null;
+
     function initTables() {
       for (let i = 1; i <= 9; i++) {
         const key = String(i);
-        if (!tables[key]) {
-          tables[key] = { status: 'free', orderIds: [] };
-        }
+        if (!tables[key]) tables[key] = { status: 'free', orderIds: [] };
       }
       saveTables();
     }
@@ -1125,6 +925,14 @@
       return null;
     }
 
+    function findItemByName(name) {
+      for (const cat of MENU) {
+        const found = cat.items.find(i => i.name === name);
+        if (found) return found;
+      }
+      return null;
+    }
+
     function updateBadge() {
       const count = getCartCount();
       const badge = document.getElementById('cartBadge');
@@ -1136,19 +944,7 @@
       }
     }
 
-    // ========== 农历/星期工具 ==========
-    function getLunarDateStr(date) {
-      try {
-        if (typeof solarLunar !== 'undefined') {
-          const lunar = solarLunar.solar2lunar(date.getFullYear(), date.getMonth() + 1, date.getDate());
-          if (lunar) {
-            return '农历' + lunar.lunarYear + '年' + lunar.lunarMonthCn + lunar.lunarDayCn;
-          }
-        }
-      } catch (e) {}
-      return '';
-    }
-
+    // ========== 工具 ==========
     function getWeekdayStr(date) {
       const days = ['星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六'];
       return days[date.getDay()];
@@ -1159,7 +955,7 @@
       return '.'.repeat(round);
     }
 
-    // ========== 桌台状态（圆形紧凑） ==========
+    // ========== 桌台状态 ==========
     function renderTableStatusBar() {
       const bar = document.getElementById('tableStatusBar');
       let html = '';
@@ -1233,7 +1029,6 @@
       if (!selectedTable) { toast('请先选择桌台'); return; }
       const t = tables[selectedTable];
       if (t.status === 'occupied') { toast('该桌已开台'); return; }
-
       t.status = 'occupied';
       t.orderIds = [];
       saveTables();
@@ -1259,7 +1054,7 @@
       toast('为' + selectedTable + '号桌增菜' + hint + '，请选择菜品后下单');
     }
 
-    // ========== 分类 & 九宫格菜单 ==========
+    // ========== 分类 & 菜单 ==========
     function renderCategories() {
       const bar = document.getElementById('categoryBar');
       const cats = MENU.map(c => c.category);
@@ -1304,7 +1099,6 @@
 
       const card = document.querySelector('.grid-item[data-item-id="' + id + '"]');
       popElement(card);
-
       renderMenuGrid();
 
       if (next > 0) {
@@ -1437,7 +1231,7 @@
         tableNo: pendingOrderTable + '号桌',
         note: note,
         items: items,
-        total: getCartTotal(),
+        total: items.reduce((s, i) => s + i.price * i.qty, 0),
         time: new Date().toLocaleString('zh-CN', { hour12: false }),
         status: 'pending',
         isAdd: isAdd,
@@ -1448,7 +1242,6 @@
 
       orders.unshift(order);
       saveOrders();
-
       t.orderIds.push(order.id);
       saveTables();
 
@@ -1474,7 +1267,7 @@
       }, 600);
     }
 
-    // ========== 订单列表（按桌台分组 + 长按划单 + 收台小票） ==========
+    // ========== 订单列表 ==========
     function renderOrders() {
       const list = document.getElementById('orderList');
 
@@ -1487,7 +1280,6 @@
         return;
       }
 
-      // ===== 按桌台分组 =====
       const groupMap = {};
       orders.forEach(o => {
         const key = o.tableNo || '未知桌台';
@@ -1501,9 +1293,6 @@
         const t = tables[tableKey] || {};
         const isOccupied = t.status === 'occupied';
 
-        // ===== 只显示“当前这一桌正在进行”的订单 =====
-        // 开台中：只显示还没结账的订单（status !== 'checked-out'）
-        // 已收台：只显示最近一次收台批次的订单（batchId === lastCheckoutBatches[tableKey]）
         let displayOrders;
         if (isOccupied) {
           displayOrders = tableOrders.filter(o => o.status !== 'checked-out');
@@ -1514,27 +1303,26 @@
             : [];
         }
 
-        // 如果这桌既没收台，也没有当前订单，直接跳过不显示
         if (displayOrders.length === 0) return;
 
         const tableTotal = displayOrders.reduce((s, o) =>
           s + o.items.filter(i => !i.void).reduce((sum, i) => sum + i.price * i.qty, 0), 0);
         const tableOrderCount = displayOrders.length;
 
-        // 桌台分组头
+        const tagHtml = isOccupied
+          ? '<span class="table-status-tag occupied" data-table="' + tableKey + '" data-action="recall"><span class="tag-fill"></span><span>开台中</span></span>'
+          : '<span class="table-status-tag free">已收桌</span>';
+
         html += '<div class="order-group">' +
           '<div class="order-group-header">' +
             '<div class="order-group-title">' +
               '<span class="table-tag">' + tableNo + '</span>' +
               '<span class="table-meta">' + tableOrderCount + '单 · ¥' + tableTotal.toFixed(2) + '</span>' +
               '<button class="btn-sm outline" style="padding:4px 10px;font-size:12px;margin-left:8px" onclick="showTableReceipt(\'' + tableKey + '\')">收台小票</button>' +
-              (isOccupied
-                ? '<span class="table-status-tag occupied">开台中</span>'
-                : '<span class="table-status-tag free">已收桌</span>') +
+              tagHtml +
             '</div>' +
           '</div>';
 
-        // 该桌下要显示的订单
         displayOrders.forEach(o => {
           const isCheckedOut = o.status === 'checked-out';
 
@@ -1582,7 +1370,7 @@
           '</div>';
         });
 
-        html += '</div>'; // end order-group
+        html += '</div>';
       });
 
       if (html === '') {
@@ -1595,11 +1383,93 @@
       }
 
       list.innerHTML = html;
-
       bindLongPress();
+      bindTagLongPress();
     }
 
-    // ========== 长按划单逻辑 ==========
+    // ========== 长按“开台中”标签撤回订单 ==========
+    let tagTimer = null;
+    let tagEl = null;
+
+    function bindTagLongPress() {
+      document.querySelectorAll('.table-status-tag[data-action="recall"]').forEach(el => {
+        el.addEventListener('touchstart', function(e) { startTagPress(this); }, { passive: true });
+        el.addEventListener('touchend', function(e) { endTagPress(this); });
+        el.addEventListener('touchcancel', function(e) { endTagPress(this); });
+        el.addEventListener('touchmove', function(e) { endTagPress(this); });
+        el.addEventListener('mousedown', function(e) { startTagPress(this); });
+        el.addEventListener('mouseup', function(e) { endTagPress(this); });
+        el.addEventListener('mouseleave', function(e) { endTagPress(this); });
+      });
+    }
+
+    function startTagPress(el) {
+      if (tagTimer) clearTimeout(tagTimer);
+      if (tagEl && tagEl !== el) tagEl.classList.remove('pressing');
+      tagEl = el;
+      el.classList.add('pressing');
+      vibrate(15);
+      tagTimer = setTimeout(() => {
+        const tableKey = el.dataset.table;
+        el.classList.remove('pressing');
+        tagTimer = null;
+        tagEl = null;
+        recallTableOrder(tableKey);
+      }, 800);
+    }
+
+    function endTagPress(el) {
+      if (tagTimer) { clearTimeout(tagTimer); tagTimer = null; }
+      el.classList.remove('pressing');
+      if (tagEl === el) tagEl = null;
+    }
+
+    function recallTableOrder(tableKey) {
+      const t = tables[tableKey];
+      if (!t || t.status !== 'occupied') { toast('该桌未开台'); return; }
+
+      const tableOrders = orders.filter(o => t.orderIds.includes(o.id) && o.status !== 'checked-out');
+      if (tableOrders.length === 0) { toast('该桌没有可撤回的订单'); return; }
+
+      const totalItems = tableOrders.reduce((s, o) =>
+        s + o.items.filter(i => !i.void).reduce((sum, i) => sum + i.qty, 0), 0);
+
+      if (!confirm('确定撤回「' + tableKey + '号桌」的 ' + tableOrders.length + ' 笔订单（共 ' + totalItems + ' 份菜品）到购物车重新编辑吗？')) return;
+
+      tableOrders.forEach(o => {
+        o.items.forEach(item => {
+          if (item.void) return;
+          const matched = findItemByName(item.name);
+          if (matched) {
+            cart[matched.id] = (cart[matched.id] || 0) + item.qty;
+          } else {
+            cart[item.id] = (cart[item.id] || 0) + item.qty;
+          }
+        });
+      });
+
+      const idsToRemove = new Set(tableOrders.map(o => o.id));
+      orders = orders.filter(o => !idsToRemove.has(o.id));
+      saveOrders();
+
+      t.status = 'free';
+      t.orderIds = [];
+      saveTables();
+
+      saveCart();
+
+      renderTableStatusBar();
+      updateTableActionBar();
+      renderMenuGrid();
+      renderCart();
+      renderOrders();
+
+      switchPage('cart');
+      vibrate([40, 60, 40]);
+      toast('已撤回 ' + tableKey + '号桌订单到购物车');
+    }
+
+    // ========== 长按划单 ==========
     let pressTimer = null;
     let pressRow = null;
 
@@ -1609,39 +1479,24 @@
           if (this.dataset.disabled) return;
           startPress(this);
         }, { passive: true });
-
-        row.addEventListener('touchend', function(e) {
-          endPress(this);
-        });
-        row.addEventListener('touchcancel', function(e) {
-          endPress(this);
-        });
-        row.addEventListener('touchmove', function(e) {
-          endPress(this);
-        });
-
+        row.addEventListener('touchend', function(e) { endPress(this); });
+        row.addEventListener('touchcancel', function(e) { endPress(this); });
+        row.addEventListener('touchmove', function(e) { endPress(this); });
         row.addEventListener('mousedown', function(e) {
           if (this.dataset.disabled) return;
           startPress(this);
         });
-        row.addEventListener('mouseup', function(e) {
-          endPress(this);
-        });
-        row.addEventListener('mouseleave', function(e) {
-          endPress(this);
-        });
+        row.addEventListener('mouseup', function(e) { endPress(this); });
+        row.addEventListener('mouseleave', function(e) { endPress(this); });
       });
     }
 
     function startPress(row) {
       if (pressTimer) clearTimeout(pressTimer);
-      if (pressRow && pressRow !== row) {
-        pressRow.classList.remove('pressing');
-      }
+      if (pressRow && pressRow !== row) pressRow.classList.remove('pressing');
       pressRow = row;
       row.classList.add('pressing');
       vibrate(15);
-
       pressTimer = setTimeout(() => {
         const orderId = row.dataset.order;
         const idx = parseInt(row.dataset.idx, 10);
@@ -1653,24 +1508,18 @@
     }
 
     function endPress(row) {
-      if (pressTimer) {
-        clearTimeout(pressTimer);
-        pressTimer = null;
-      }
+      if (pressTimer) { clearTimeout(pressTimer); pressTimer = null; }
       row.classList.remove('pressing');
       if (pressRow === row) pressRow = null;
     }
 
-    // ========== 划单 ==========
     function voidOrderItem(orderId, itemIndex) {
       const order = orders.find(o => o.id === orderId);
       if (!order) return;
       if (order.status === 'checked-out') { toast('已结账订单不能划单'); return; }
       const item = order.items[itemIndex];
       if (!item || item.void) return;
-
       if (!confirm('确定划掉「' + item.name + ' ×' + item.qty + '」吗？')) return;
-
       item.void = true;
       order.total = order.items.filter(i => !i.void).reduce((s, i) => s + i.price * i.qty, 0);
       saveOrders();
@@ -1730,7 +1579,6 @@
       if (tableOrders.length === 0) { closeModal('checkoutModal'); return; }
 
       const batchId = 'B' + Date.now();
-
       tableOrders.forEach(o => {
         o.status = 'checked-out';
         o.batchId = batchId;
@@ -1759,7 +1607,6 @@
       if (!t) { toast('桌台不存在'); return; }
 
       let tableOrders = [];
-
       if (t.orderIds && t.orderIds.length > 0) {
         tableOrders = orders
           .filter(o => t.orderIds.includes(o.id))
@@ -1782,11 +1629,9 @@
 
       let itemsHtml = '';
       let grandTotal = 0;
-
       tableOrders.forEach((o) => {
         const dots = o.isAdd ? getAddDots(o.addRound) : '';
         const prefix = dots ? '<span class="r-add-dots">' + dots + '</span>' : '';
-
         o.items.forEach(item => {
           const lineTotal = (item.price * item.qty).toFixed(2);
           if (item.void) {
@@ -1802,9 +1647,7 @@
             grandTotal += item.price * item.qty;
           }
         });
-        if (o.note) {
-          itemsHtml += '<div class="r-note">备注:' + o.note + '</div>';
-        }
+        if (o.note) itemsHtml += '<div class="r-note">备注:' + o.note + '</div>';
       });
 
       const receiptHtml =
@@ -1832,19 +1675,16 @@
     // ========== 小票预览（结账打印） ==========
     function showReceiptPreview(orderList) {
       if (orderList.length === 0) { toast('没有订单'); return; }
-
       orderList.sort((a, b) => new Date(a.time) - new Date(b.time));
 
       const now = new Date();
       const dateStr = now.toLocaleDateString('zh-CN');
       const timeStr = now.toLocaleTimeString('zh-CN', { hour12: false, hour: '2-digit', minute: '2-digit' });
       const weekdayStr = getWeekdayStr(now);
-
       const tables = [...new Set(orderList.map(o => o.tableNo))].join(', ');
 
       let itemsHtml = '';
       let grandTotal = 0;
-
       orderList.forEach((o) => {
         const dots = o.isAdd ? getAddDots(o.addRound) : '';
         const prefix = dots ? '<span class="r-add-dots">' + dots + '</span>' : '';
@@ -1863,9 +1703,7 @@
             grandTotal += item.price * item.qty;
           }
         });
-        if (o.note) {
-          itemsHtml += '<div class="r-note">备注:' + o.note + '</div>';
-        }
+        if (o.note) itemsHtml += '<div class="r-note">备注:' + o.note + '</div>';
       });
 
       const receiptHtml =
@@ -1986,12 +1824,10 @@
 
     function openItemEditModal(title) {
       document.getElementById('itemEditTitle').textContent = title;
-
       const sel = document.getElementById('itemEditCategory');
       sel.innerHTML = MENU.map((c, i) =>
         '<option value="' + i + '"' + (i === editingItem.catIndex ? ' selected' : '') + '>' + c.category + '</option>'
       ).join('');
-
       if (editingItem.mode === 'edit') {
         const item = MENU[editingItem.catIndex].items[editingItem.itemIndex];
         document.getElementById('itemEditName').value = item.name;
@@ -2000,7 +1836,6 @@
         document.getElementById('itemEditName').value = '';
         document.getElementById('itemEditPrice').value = '';
       }
-
       document.getElementById('itemEditModal').classList.add('show');
       setTimeout(() => document.getElementById('itemEditName').focus(), 200);
     }
@@ -2056,183 +1891,216 @@
       toast('已恢复默认菜单');
     }
 
-    // ========== 生成简单柱状图（SVG） ==========
-    function buildBarChart(data, options) {
-      const {
-        width = 600, height = 200,
-        barColor = '#e74c3c', labelColor = '#333',
-        title = '', maxLabelLen = 6
-      } = options || {};
+    // ========== 营业报表 PDF 导出（按小时分组 · 每桌一票 · 一行多张小票） ==========
+    function exportReportPDF(dateObj) {
+      const dateStr = dateObj.toLocaleDateString('zh-CN');
+      const dayOrders = orders.filter(o => o.time.split(' ')[0] === dateStr);
 
-      const padding = { top: 30, right: 20, bottom: 50, left: 40 };
-      const chartW = width - padding.left - padding.right;
-      const chartH = height - padding.top - padding.bottom;
-
-      const values = Object.values(data);
-      const maxVal = Math.max(...values, 1);
-      const n = values.length;
-      const barW = Math.min(40, chartW / n * 0.6);
-      const gap = (chartW - barW * n) / (n + 1);
-
-      let svg = '<svg width="' + width + '" height="' + height + '" xmlns="http://www.w3.org/2000/svg">';
-
-      if (title) {
-        svg += '<text x="' + (width / 2) + '" y="18" text-anchor="middle" font-size="13" font-weight="700" fill="' + labelColor + '">' + title + '</text>';
-      }
-
-      for (let i = 0; i <= 4; i++) {
-        const y = padding.top + chartH - (chartH * i / 4);
-        const val = Math.round(maxVal * i / 4);
-        svg += '<line x1="' + padding.left + '" y1="' + y + '" x2="' + (width - padding.right) + '" y2="' + y + '" stroke="#eee" stroke-width="1"/>';
-        svg += '<text x="' + (padding.left - 5) + '" y="' + (y + 4) + '" text-anchor="end" font-size="9" fill="#999">' + val + '</text>';
-      }
-
-      Object.entries(data).forEach(([label, val], i) => {
-        const x = padding.left + gap + i * (barW + gap);
-        const barH = maxVal > 0 ? (val / maxVal) * chartH : 0;
-        const y = padding.top + chartH - barH;
-
-        svg += '<rect x="' + x + '" y="' + y + '" width="' + barW + '" height="' + barH + '" fill="' + barColor + '" rx="2"/>';
-
-        if (val > 0) {
-          svg += '<text x="' + (x + barW / 2) + '" y="' + (y - 3) + '" text-anchor="middle" font-size="9" font-weight="600" fill="' + barColor + '">' + val + '</text>';
-        }
-
-        let shortLabel = label.length > maxLabelLen ? label.slice(0, maxLabelLen) + '…' : label;
-        svg += '<text x="' + (x + barW / 2) + '" y="' + (padding.top + chartH + 12) + '" text-anchor="middle" font-size="9" fill="' + labelColor + '">' + shortLabel + '</text>';
-      });
-
-      svg += '<line x1="' + padding.left + '" y1="' + (padding.top + chartH) + '" x2="' + (width - padding.right) + '" y2="' + (padding.top + chartH) + '" stroke="#ccc" stroke-width="1"/>';
-      svg += '</svg>';
-      return svg;
-    }
-
-    // ========== 导出PDF日营业报表 ==========
-    function exportDailyReport() {
-      const today = new Date();
-      const todayStr = today.toLocaleDateString('zh-CN');
-
-      const todayOrders = orders.filter(o => o.time.split(' ')[0] === todayStr);
-
-      if (todayOrders.length === 0) {
-        toast('今日暂无订单，无法导出报表');
+      if (dayOrders.length === 0) {
+        toast('该日暂无订单，无法导出报表');
         return;
       }
 
-      const weekdayStr = getWeekdayStr(today);
-      const lunarStr = getLunarDateStr(today);
-      const totalAmount = todayOrders.reduce((s, o) =>
+      const totalAmount = dayOrders.reduce((s, o) =>
         s + o.items.filter(i => !i.void).reduce((sum, i) => sum + i.price * i.qty, 0), 0);
-      const orderCount = todayOrders.length;
+      const orderCount = dayOrders.length;
       const avgOrder = totalAmount / orderCount;
 
-      const hourFlow = {};
-      for (let h = 0; h < 24; h++) hourFlow[h] = 0;
-      todayOrders.forEach(o => {
-        const timePart = o.time.split(' ')[1];
-        if (timePart) {
-          const hour = parseInt(timePart.split(':')[0], 10);
-          if (!isNaN(hour)) hourFlow[hour] = (hourFlow[hour] || 0) + 1;
+      // 按“桌台 + 收台批次”聚合，一次收台=一张小票
+      const receiptsMap = {};
+      dayOrders.forEach(o => {
+        const key = o.batchId || ('SINGLE_' + o.id);
+        if (!receiptsMap[key]) {
+          receiptsMap[key] = {
+            tableNo: o.tableNo,
+            tableKey: o.tableKey || '',
+            time: o.time,
+            hourKey: o.time.split(' ')[1].split(':')[0] + ':00',
+            orders: []
+          };
+        }
+        receiptsMap[key].orders.push(o);
+        if (new Date(o.time) < new Date(receiptsMap[key].time)) {
+          receiptsMap[key].time = o.time;
         }
       });
 
-      const activeHours = Object.keys(hourFlow).filter(h => hourFlow[h] > 0).map(Number);
-      const minHour = activeHours.length > 0 ? Math.max(0, Math.min(...activeHours) - 1) : 17;
-      const maxHour = activeHours.length > 0 ? Math.min(23, Math.max(...activeHours) + 1) : 23;
+      // 每张小票生成 HTML，并按小时分组
+      const hourGroups = {};
+      Object.values(receiptsMap).forEach(r => {
+        r.orders.sort((a, b) => new Date(a.time) - new Date(b.time));
 
-      const hourFlowFiltered = {};
-      for (let h = minHour; h <= maxHour; h++) hourFlowFiltered[h + '时'] = hourFlow[h] || 0;
-
-      const itemSummary = {};
-      todayOrders.forEach(o => {
-        o.items.forEach(item => {
-          if (item.void) return;
-          if (!itemSummary[item.name]) itemSummary[item.name] = { qty: 0, price: item.price };
-          itemSummary[item.name].qty += item.qty;
+        let itemsLines = '';
+        let grandTotal = 0;
+        r.orders.forEach(o => {
+          const dots = o.isAdd ? getAddDots(o.addRound) : '';
+          const prefix = dots ? '<span class="rp-add-dots">' + dots + '</span>' : '';
+          o.items.forEach(item => {
+            const lineTotal = (item.price * item.qty).toFixed(2);
+            if (item.void) {
+              itemsLines += '<div class="rp-item rp-void">' +
+                '<span>' + prefix + item.name + '×' + item.qty + '<span class="rp-void-tag">(划单)</span></span>' +
+                '<span>' + lineTotal + '</span>' +
+              '</div>';
+            } else {
+              itemsLines += '<div class="rp-item">' +
+                '<span>' + prefix + item.name + '×' + item.qty + '</span>' +
+                '<span>' + lineTotal + '</span>' +
+              '</div>';
+              grandTotal += item.price * item.qty;
+            }
+          });
         });
+
+        const notes = r.orders.filter(o => o.note).map(o => o.note).join('；');
+
+        const receiptHtml = '<div class="rp-receipt">' +
+          '<div class="rp-header">' +
+            '<span class="rp-title">宫头夜宵店</span>' +
+            '<span class="rp-phone">电话 15990817895</span>' +
+          '</div>' +
+          '<div class="rp-hr"></div>' +
+          '<div class="rp-table-date">' +
+            '<span>' + r.tableNo + '</span>' +
+            '<span>' + r.time + '</span>' +
+          '</div>' +
+          '<div class="rp-hr"></div>' +
+          '<div class="rp-item" style="font-weight:600;"><span>品名</span><span>金额</span></div>' +
+          itemsLines +
+          '<div class="rp-hr"></div>' +
+          (notes ? '<div class="rp-note">备注：' + notes + '</div>' : '') +
+          '<div class="rp-item rp-total"><span>合计</span><span>¥' + grandTotal.toFixed(2) + '</span></div>' +
+          '<div class="rp-hr"></div>' +
+          '<div class="rp-foot">谢谢惠顾 欢迎下次光临</div>' +
+        '</div>';
+
+        const hk = r.hourKey;
+        if (!hourGroups[hk]) hourGroups[hk] = [];
+        hourGroups[hk].push(receiptHtml);
       });
 
-      const topItems = Object.entries(itemSummary).sort((a, b) => b[1].qty - a[1].qty).slice(0, 10);
-      const itemChartData = {};
-      topItems.forEach(([name, data]) => { itemChartData[name] = data.qty; });
-
-      const hourChartSvg = buildBarChart(hourFlowFiltered, { width: 620, height: 220, barColor: '#e74c3c', title: '客流峰谷图（按小时订单数）', maxLabelLen: 4 });
-      const itemChartSvg = buildBarChart(itemChartData, { width: 620, height: 240, barColor: '#27ae60', title: '菜品峰谷图（销量前10）', maxLabelLen: 5 });
-
-      todayOrders.sort((a, b) => new Date(a.time) - new Date(b.time));
-
-      let ordersDetailHtml = '';
-      todayOrders.forEach((o, i) => {
-        const tag = o.isAdd ? ' <span style="color:#e67e22;font-size:11px;">[' + getAddDots(o.addRound) + ']</span>' : '';
-        const validTotal = o.items.filter(i => !i.void).reduce((s, i) => s + i.price * i.qty, 0);
-        ordersDetailHtml += '<div style="border:1px solid #e0e0e0; border-radius:6px; padding:10px; margin-bottom:10px; page-break-inside: avoid;">' +
-          '<div style="display:flex; justify-content:space-between; font-size:13px; font-weight:700; margin-bottom:6px;">' +
-            '<span>' + (i + 1) + '. ' + o.id + tag + '</span>' +
-            '<span>' + o.tableNo + '</span>' +
-          '</div>' +
-          '<div style="font-size:12px; color:#666; margin-bottom:6px;">' + o.time + '</div>' +
-          '<table style="width:100%; border-collapse:collapse; font-size:12px;">' +
-            '<thead><tr style="background:#f8f9fa;">' +
-              '<th style="border:1px solid #eee; padding:4px; text-align:left;">菜品</th>' +
-              '<th style="border:1px solid #eee; padding:4px; text-align:center;">数量</th>' +
-              '<th style="border:1px solid #eee; padding:4px; text-align:right;">单价</th>' +
-              '<th style="border:1px solid #eee; padding:4px; text-align:right;">小计</th>' +
-            '</tr></thead><tbody>';
-
-        o.items.forEach(item => {
-          const voidStyle = item.void ? 'text-decoration:line-through;color:#999;' : '';
-          const voidTag = item.void ? ' <span style="color:#999;font-size:10px;">(划单)</span>' : '';
-          ordersDetailHtml += '<tr>' +
-            '<td style="border:1px solid #eee; padding:4px;' + voidStyle + '">' + item.name + voidTag + '</td>' +
-            '<td style="border:1px solid #eee; padding:4px; text-align:center;' + voidStyle + '">' + item.qty + '</td>' +
-            '<td style="border:1px solid #eee; padding:4px; text-align:right;' + voidStyle + '">¥' + item.price + '</td>' +
-            '<td style="border:1px solid #eee; padding:4px; text-align:right;' + voidStyle + '">¥' + (item.price * item.qty).toFixed(2) + '</td>' +
-          '</tr>';
+      // 按小时排序输出
+      const sortedHours = Object.keys(hourGroups).sort();
+      let sectionsHtml = '';
+      sortedHours.forEach(hk => {
+        let hourTotal = 0;
+        let hourReceiptCount = 0;
+        Object.values(receiptsMap).forEach(r => {
+          if (r.hourKey === hk) {
+            hourReceiptCount++;
+            r.orders.forEach(o => {
+              o.items.forEach(item => {
+                if (item.void) return;
+                hourTotal += item.price * item.qty;
+              });
+            });
+          }
         });
 
-        ordersDetailHtml += '</tbody></table>' +
-          (o.note ? '<div style="font-size:11px; color:#e67e22; margin-top:4px;">备注：' + o.note + '</div>' : '') +
-          '<div style="text-align:right; font-size:14px; font-weight:700; color:#e74c3c; margin-top:6px;">合计：¥' + validTotal.toFixed(2) + '</div>' +
+        const hourDate = dateStr.replace(/\//g, '');
+        sectionsHtml += '<div class="rp-hour-section">' +
+          '<div class="rp-hour-title">' + hourDate + ' ' + hk + ' 营收票据' +
+            '<span class="rp-hour-meta">' + hourReceiptCount + '单 · ¥' + hourTotal.toFixed(2) + '</span>' +
+          '</div>' +
+          '<div class="rp-receipts-grid">' +
+            hourGroups[hk].join('') +
+          '</div>' +
         '</div>';
       });
 
-      let reportHtml = '<div style="font-family: \'SimSun\', \'Microsoft YaHei\', sans-serif; padding: 20px; max-width: 700px; margin: 0 auto;">' +
-        '<div style="text-align: center; margin-bottom: 20px;">' +
-          '<h1 style="font-size: 24px; margin-bottom: 8px;">宫头夜宵店 · 日营业报表</h1>' +
-          '<p style="font-size: 13px; color: #666;">电话：15990817895</p>' +
-          '<p style="font-size: 14px; color: #666;">' + todayStr + ' ' + weekdayStr + (lunarStr ? ' · ' + lunarStr : '') + '</p>' +
-          '<p style="font-size: 13px; color: #888;">报表生成时间：' + new Date().toLocaleString('zh-CN', { hour12: false }) + '</p>' +
-        '</div>' +
-        '<div style="background: #f8f9fa; padding: 16px; border-radius: 8px; margin-bottom: 20px;">' +
-          '<div style="display: flex; justify-content: space-around; text-align: center;">' +
-            '<div><div style="font-size: 24px; font-weight: 700; color: #e74c3c;">' + orderCount + '</div><div style="font-size: 12px; color: #666;">订单总数</div></div>' +
-            '<div><div style="font-size: 24px; font-weight: 700; color: #e74c3c;">¥' + totalAmount.toFixed(2) + '</div><div style="font-size: 12px; color: #666;">营业总额</div></div>' +
-            '<div><div style="font-size: 24px; font-weight: 700; color: #e74c3c;">¥' + avgOrder.toFixed(2) + '</div><div style="font-size: 12px; color: #666;">平均客单价</div></div>' +
+      const reportHtml =
+        '<div class="rp-paper">' +
+          '<h1>宫头夜宵店 · 日营业报表</h1>' +
+          '<div class="rp-stats">' +
+            '<div><div class="num">' + orderCount + '</div><div class="lbl">订单总数</div></div>' +
+            '<div><div class="num">¥' + totalAmount.toFixed(2) + '</div><div class="lbl">营业总额</div></div>' +
+            '<div><div class="num">¥' + avgOrder.toFixed(2) + '</div><div class="lbl">平均客单价</div></div>' +
           '</div>' +
-        '</div>' +
-        '<h2 style="font-size: 16px; margin-bottom: 12px; border-bottom: 2px solid #e74c3c; padding-bottom: 6px;">客流峰谷图</h2>' +
-        '<div style="text-align:center; margin-bottom: 20px;">' + hourChartSvg + '</div>' +
-        '<h2 style="font-size: 16px; margin-bottom: 12px; border-bottom: 2px solid #27ae60; padding-bottom: 6px;">菜品峰谷图</h2>' +
-        '<div style="text-align:center; margin-bottom: 20px;">' + itemChartSvg + '</div>' +
-        '<h2 style="font-size: 16px; margin-bottom: 12px; border-bottom: 2px solid #e74c3c; padding-bottom: 6px;">每笔订单明细</h2>' +
-        ordersDetailHtml +
-        '<div style="text-align: center; margin-top: 24px; font-size: 12px; color: #999;">' +
-          '<p>—— 报表结束 ——</p>' +
-          '<p style="margin-top: 4px;">宫头夜宵店电子菜单系统 · 版本 6.4</p>' +
-        '</div>' +
-      '</div>';
+          sectionsHtml +
+          '<div class="rp-foot-end">—— 报表结束 ——</div>' +
+        '</div>';
 
       const printWindow = window.open('', '_blank');
       printWindow.document.write(
-        '<!DOCTYPE html><html><head><meta charset="UTF-8"><title>日营业报表 - ' + todayStr + '</title>' +
-        '<style>body { margin: 0; padding: 0; background: white; } @media print { body { -webkit-print-color-adjust: exact; print-color-adjust: exact; } }</style>' +
-        '</head><body>' + reportHtml +
-        '<script>window.onload = function() { setTimeout(function() { window.print(); }, 500); };<\/script>' +
+        '<!DOCTYPE html><html><head><meta charset="UTF-8">' +
+        '<title>营业报表 - ' + dateStr + '</title>' +
+        '<style>' +
+        'body { margin: 0; padding: 16px; background: #f5f6fa; color: #333; font-family: "Courier New","SimSun",monospace; }' +
+        '.rp-paper { max-width: 1200px; margin: 0 auto; }' +
+        '.rp-paper h1 { font-size: 20px; text-align: center; margin-bottom: 14px; font-family: "SimSun","Microsoft YaHei",sans-serif; }' +
+        '.rp-paper .rp-stats { background: #fff; border-radius: 8px; padding: 12px 0; margin-bottom: 16px; display: flex; justify-content: space-around; text-align: center; box-shadow: 0 2px 8px rgba(0,0,0,0.06); font-family: "SimSun","Microsoft YaHei",sans-serif; }' +
+        '.rp-paper .rp-stats .num { font-size: 20px; font-weight: 700; color: #e74c3c; }' +
+        '.rp-paper .rp-stats .lbl { font-size: 12px; color: #666; margin-top: 2px; }' +
+        '.rp-hour-section { margin-bottom: 24px; }' +
+        '.rp-hour-title { font-size: 15px; font-weight: 700; font-family: "SimSun","Microsoft YaHei",sans-serif; margin: 12px 0 10px; padding-bottom: 5px; border-bottom: 2px solid #e74c3c; display: flex; justify-content: space-between; align-items: baseline; }' +
+        '.rp-hour-title .rp-hour-meta { font-size: 12px; font-weight: 400; color: #666; }' +
+        '.rp-receipts-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: 12px; }' +
+        '.rp-receipt { width: 100%; background: #fff; border: 1px dashed #999; border-radius: 4px; padding: 10px 8px; font-family: "Courier New","SimSun",monospace; font-size: 11px; line-height: 1.5; color: #000; page-break-inside: avoid; box-sizing: border-box; }' +
+        '.rp-receipt .rp-header { display: flex; justify-content: space-between; align-items: baseline; font-weight: 700; font-size: 12px; }' +
+        '.rp-receipt .rp-title { font-weight: 700; font-size: 12px; }' +
+        '.rp-receipt .rp-phone { font-size: 9px; font-weight: 400; }' +
+        '.rp-receipt .rp-table-date { display: flex; justify-content: space-between; font-size: 10px; }' +
+        '.rp-receipt .rp-hr { border-top: 1px dashed #000; margin: 4px 0; }' +
+        '.rp-receipt .rp-item { display: flex; justify-content: space-between; font-size: 11px; }' +
+        '.rp-receipt .rp-item.rp-void { text-decoration: line-through; color: #999; }' +
+        '.rp-receipt .rp-void-tag { color: #999; font-size: 9px; margin-left: 4px; }' +
+        '.rp-receipt .rp-add-dots { color: #e67e22; font-weight: 700; margin-right: 3px; }' +
+        '.rp-receipt .rp-note { font-size: 10px; color: #e67e22; margin-top: 1px; }' +
+        '.rp-receipt .rp-total { font-weight: 700; font-size: 13px; }' +
+        '.rp-receipt .rp-foot { text-align: center; font-size: 10px; }' +
+        '.rp-paper .rp-foot-end { text-align: center; font-size: 12px; color: #999; margin-top: 20px; font-family: "SimSun","Microsoft YaHei",sans-serif; }' +
+        '@media print { body { padding: 0; background: #fff; } @page { margin: 8mm; } .rp-receipt { box-shadow: none; } }' +
+        '</style></head><body>' +
+        reportHtml +
+        '<script>window.onload=function(){setTimeout(function(){window.print();},400);};<\/script>' +
         '</body></html>'
       );
       printWindow.document.close();
+      toast('已打开报表 PDF 预览，可在浏览器中另存为 PDF');
+    }
 
-      toast('已打开报表预览，可打印或另存为PDF');
+    // 长按“营业报表”按钮
+    function startReportLongPress() {
+      reportLongPressed = false;
+      if (reportLongPressTimer) clearTimeout(reportLongPressTimer);
+      reportLongPressTimer = setTimeout(() => {
+        reportLongPressed = true;
+        openDatePicker();
+        vibrate(20);
+      }, 600);
+    }
+
+    function endReportLongPress() {
+      if (reportLongPressTimer) {
+        clearTimeout(reportLongPressTimer);
+        reportLongPressTimer = null;
+      }
+      setTimeout(() => { reportLongPressed = false; }, 50);
+    }
+
+    function openDatePicker() {
+      const sel = document.getElementById('reportDateSelect');
+      const today = new Date();
+      let html = '';
+      for (let i = 0; i < 7; i++) {
+        const d = new Date(today);
+        d.setDate(today.getDate() - i);
+        const ds = d.toLocaleDateString('zh-CN');
+        const ws = getWeekdayStr(d);
+        const label = (i === 0 ? '今天 ' : (i === 1 ? '昨天 ' : '')) + ds + ' ' + ws;
+        html += '<option value="' + ds + '">' + label + '</option>';
+      }
+      sel.innerHTML = html;
+      document.getElementById('datePickerModal').classList.add('show');
+    }
+
+    function exportSelectedDateReport() {
+      const ds = document.getElementById('reportDateSelect').value;
+      if (!ds) return;
+      const parts = ds.split('/');
+      const d = new Date(parseInt(parts[0], 10), parseInt(parts[1], 10) - 1, parseInt(parts[2], 10));
+      closeModal('datePickerModal');
+      exportReportPDF(d);
     }
 
     // ========== 设置 ==========
@@ -2261,25 +2129,22 @@
 
     function closeModal(id) { document.getElementById(id).classList.remove('show'); }
 
-    ['orderModal', 'checkoutModal', 'printModal', 'manageModal', 'itemEditModal'].forEach(id => {
+    ['orderModal', 'checkoutModal', 'printModal', 'manageModal', 'itemEditModal', 'datePickerModal'].forEach(id => {
       const el = document.getElementById(id);
       if (el) {
         el.addEventListener('click', function(e) {
           if (e.target === this) {
-            if (id === 'manageModal') {
-              closeManageModal();
-            } else {
-              closeModal(id);
-            }
+            if (id === 'manageModal') closeManageModal();
+            else closeModal(id);
           }
         });
       }
     });
 
-    // ========== 键盘快捷键（Win10 支持） ==========
+    // ========== 键盘快捷键 ==========
     document.addEventListener('keydown', function(e) {
       if (e.key === 'Escape' || e.key === 'Esc') {
-        const openModals = ['orderModal', 'checkoutModal', 'printModal', 'manageModal', 'itemEditModal']
+        const openModals = ['orderModal', 'checkoutModal', 'printModal', 'manageModal', 'itemEditModal', 'datePickerModal']
           .filter(id => document.getElementById(id).classList.contains('show'));
         if (openModals.length > 0) {
           const topId = openModals[openModals.length - 1];
@@ -2293,27 +2158,11 @@
       if (e.key === 'Enter') {
         const tag = (e.target.tagName || '').toLowerCase();
         if (tag === 'textarea') return;
-
-        if (document.getElementById('orderModal').classList.contains('show')) {
-          e.preventDefault();
-          submitOrder();
-          return;
-        }
-        if (document.getElementById('checkoutModal').classList.contains('show')) {
-          e.preventDefault();
-          confirmCheckout();
-          return;
-        }
-        if (document.getElementById('itemEditModal').classList.contains('show')) {
-          e.preventDefault();
-          saveMenuItem();
-          return;
-        }
-        if (document.getElementById('printModal').classList.contains('show')) {
-          e.preventDefault();
-          printReceipt();
-          return;
-        }
+        if (document.getElementById('orderModal').classList.contains('show')) { e.preventDefault(); submitOrder(); return; }
+        if (document.getElementById('checkoutModal').classList.contains('show')) { e.preventDefault(); confirmCheckout(); return; }
+        if (document.getElementById('itemEditModal').classList.contains('show')) { e.preventDefault(); saveMenuItem(); return; }
+        if (document.getElementById('printModal').classList.contains('show')) { e.preventDefault(); printReceipt(); return; }
+        if (document.getElementById('datePickerModal').classList.contains('show')) { e.preventDefault(); exportSelectedDateReport(); return; }
       }
     });
 
